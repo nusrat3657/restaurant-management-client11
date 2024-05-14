@@ -44,8 +44,8 @@ const Banner = () => {
                 <img src="https://i.ibb.co/CW2pQ6H/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai.jpg" className="w-full" />
                 <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[#151515]/0">
                     <div className="text-white space-y-5 pl-12 w-1/2">
-                        <h2 className="text-6xl font-semibold">Affordable Price For Car Servicing</h2>
-                        <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
+                        <p className="sm:disabled">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
                             <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
                             {/* <button className="btn btn-outline  border-white text-white">Latest Project</button> */}
@@ -58,10 +58,10 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/v40jM9H/banner3-jpg.jpg" className="w-full" />
+                <img src="https://i.ibb.co/jbqqB4m/top-view-eid-al-fitr-celebration-with-delicious-food-2.jpg" className="w-full" />
                 <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[#151515]/0">
                     <div className="text-white space-y-5 pl-12 w-1/2">
-                        <h2 className="text-6xl font-semibold">Affordable Price For Car Servicing</h2>
+                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
                             <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
@@ -75,10 +75,10 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/v40jM9H/banner3-jpg.jpg" className="w-full" />
+                <img src="https://i.ibb.co/qpxQg7j/top-view-eid-al-fitr-celebration-with-delicious-food.jpg" className="w-full" />
                 <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[#151515]/0">
                     <div className="text-white space-y-5 pl-12 w-1/2">
-                        <h2 className="text-6xl font-semibold">Affordable Price For Car Servicing</h2>
+                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
                             <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
@@ -92,10 +92,10 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide4" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/v40jM9H/banner3-jpg.jpg" className="w-full" />
+                <img src="https://i.ibb.co/5sdjrZN/top-view-eid-al-fitr-celebration-with-delicious-food-1.jpg" className="w-full" />
                 <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[#151515]/0">
                     <div className="text-white space-y-5 pl-12 w-1/2">
-                        <h2 className="text-6xl font-semibold">Affordable Price For Car Servicing</h2>
+                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
                             <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>

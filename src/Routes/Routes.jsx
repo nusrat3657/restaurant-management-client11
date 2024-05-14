@@ -4,6 +4,8 @@ import Home from "../components/pages/Home/Home";
 import AllFoods from "../components/pages/AllFoods/AllFoods";
 import Register from "../components/pages/Register/Register";
 import Login from "../components/pages/Login/Login";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Gallery from "../components/pages/Gallery/Gallery";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
                 element: <AllFoods></AllFoods>
             },
             {
+                path: '/gallery',
+                element: <Gallery></Gallery>
+            },
+            {
                 path: '/register',
                 element: <Register></Register>
             },
@@ -27,6 +33,10 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             }
         ]
+    },
+    {
+        path: '/error',
+        element: <ErrorPage></ErrorPage>
     }
 ])
 
