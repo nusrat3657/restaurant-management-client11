@@ -1,0 +1,113 @@
+[
+    {
+        "_id": "1",
+      "food_name": "Margherita Pizza",
+      "food_image": "https://i.ibb.co/NnY5cK9/delicious-italian-pizza-wooden-table.jpg",
+      "quantity": 12,
+      "food_category": "Pizza",
+      "price": 12.99,
+      "made_by": "Chef Mario",
+      "food_origin": "Italy",
+      "description": "Classic Margherita pizza with fresh tomatoes, mozzarella cheese, and basil leaves."
+    },
+    {
+        "_id": "2",
+      "food_name": "Sushi Platter",
+      "food_image": "https://i.ibb.co/vPJNGc8/sushi-set-with-hot-cold-rolls-wood-platter.jpg",
+      "quantity": 22,
+      "food_category": "Sushi",
+      "price": 24.99,
+      "made_by": "Chef Saito",
+      "food_origin": "Japan",
+      "description": "A variety of fresh sushi rolls, including tuna, salmon, and avocado."
+    },
+    {
+        "_id": "3",
+      "food_name": "Tacos Al Pastor",
+      "food_image": "https://i.ibb.co/LChvHT9/mexican-tacos-with-beef-tomato-sauce-salsa.jpg",
+      "quantity": 20,
+      "food_category": "Mexican",
+      "price": 8.99,
+      "made_by": "Chef Juan",
+      "food_origin": "Mexico",
+      "description": "Tacos with marinated pork, pineapple, onions, and cilantro."
+    },
+    {
+        "_id": "4",
+      "food_name": "Cheeseburger",
+      "food_image": "https://i.ibb.co/0XdFX2f/front-view-burger-stand.jpg",
+      "quantity": 10,
+      "food_category": "Burger",
+      "price": 9.99,
+      "made_by": "Chef Bob",
+      "food_origin": "USA",
+      "description": "Juicy beef patty with cheddar cheese, lettuce, tomato, and pickles."
+    },
+    {
+        "_id": "5",
+      "food_name": "Pad Thai",
+      "food_image": "https://i.ibb.co/YjfMmT4/high-angle-traditional-asian-meal-with-chopsticks.jpg",
+      "quantity": 16,
+      "food_category": "Thai",
+      "price": 11.99,
+      "made_by": "Chef Anong",
+      "food_origin": "Thailand",
+      "description": "Stir-fried rice noodles with shrimp, tofu, peanuts, and a tangy tamarind sauce."
+    },
+    {
+        "_id": "6",
+      "food_name": "Butter Chicken",
+      "food_image": "https://i.ibb.co/gFhpKw5/curry-with-chicken-onions-indian-food-asian-cuisine.jpg",
+      "quantity": 11,
+      "food_category": "Indian",
+      "price": 13.99,
+      "made_by": "Chef Raj",
+      "food_origin": "India",
+      "description": "Creamy tomato-based curry with tender pieces of chicken."
+    },
+    {
+        "_id": "7",
+      "food_name": "Croissant",
+      "food_image": "https://i.ibb.co/4449q0M/croissants-wooden-cutting-board.jpg",
+      "quantity": 21,
+      "food_category": "Pastry",
+      "price": 2.99,
+      "made_by": "Chef Pierre",
+      "food_origin": "France",
+      "description": "Flaky, buttery pastry with a golden crust."
+    },
+    {
+        "_id": "8",
+      "food_name": "Beef Wellington",
+      "food_image": "https://i.ibb.co/XXpM5Jv/grilled-t-bone-beef-meat-steak-with-vegetable.jpg",
+      "quantity": 10,
+      "food_category": "Main Course",
+      "price": 29.99,
+      "made_by": "Chef Gordon",
+      "food_origin": "UK",
+      "description": "Tender beef fillet wrapped in puff pastry and mushroom duxelles."
+    },
+    {
+        "_id": "9",
+      "food_name": "Tom Yum Soup",
+      "food_image": "https://i.ibb.co/F5jFxBV/thai-food-tom-yum-seafood-seafood-spicy-soup.jpg",
+      "quantity": 12,
+      "food_category": "Soup",
+      "price": 7.99,
+      "made_by": "Chef Somchai",
+      "food_origin": "Thailand",
+      "description": "Hot and sour soup with shrimp, mushrooms, lemongrass, and chili."
+    },
+    {
+        "_id": "10",
+      "food_name": "Falafel Wrap",
+      "food_image": "https://i.ibb.co/BHhjFpv/tortilla-wrap-with-falafel-vegetables-black-stone-background.jpg",
+      "quantity": 16,
+      "food_category": "Vegan",
+      "price": 6.99,
+      "made_by": "Chef Noura",
+      "food_origin": "Middle East",
+      "description": "Crispy falafel balls wrapped in pita with hummus, tahini, and fresh veggies."
+    }
+  ]
+  
