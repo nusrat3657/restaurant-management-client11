@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import NavBar from "../../NavBar/NavBar";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -66,6 +67,7 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet><title>Dine Genius | Register</title></Helmet>
             <NavBar></NavBar>
             <div className="bg-amber-500/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto p-10">
                 <h2 className="text-3xl my-7 text-center font-semibold ">Register Your Account</h2>

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import NavBar from "../../NavBar/NavBar";
 
 export const Gallery = () => {
@@ -5,47 +6,57 @@ export const Gallery = () => {
     const data = [
         {
             imageLink:
-                "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "https://i.ibb.co/NnY5cK9/delicious-italian-pizza-wooden-table.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+                "https://i.ibb.co/LChvHT9/mexican-tacos-with-beef-tomato-sauce-salsa.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
+                "https://i.ibb.co/YjfMmT4/high-angle-traditional-asian-meal-with-chopsticks.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
+                "https://i.ibb.co/gFhpKw5/curry-with-chicken-onions-indian-food-asian-cuisine.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+                "https://i.ibb.co/F5jFxBV/thai-food-tom-yum-seafood-seafood-spicy-soup.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
+                "https://i.ibb.co/XXpM5Jv/grilled-t-bone-beef-meat-steak-with-vegetable.jpg",
         },
         {
             imageLink:
-                "https://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog5.jpg",
+                "https://i.ibb.co/BHhjFpv/tortilla-wrap-with-falafel-vegetables-black-stone-background.jpg",
         },
         {
             imageLink:
-                "https://material-taillwind-pro-ct-tailwind-team.vercel.app/img/content2.jpg",
+                "https://i.ibb.co/0XdFX2f/front-view-burger-stand.jpg",
         },
         {
             imageLink:
-                "https://images.unsplash.com/photo-1620064916958-605375619af8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1493&q=80",
+                "https://i.ibb.co/vPJNGc8/sushi-set-with-hot-cold-rolls-wood-platter.jpg",
         },
     ];
 
 
     return (
         <div>
+            <Helmet><title>Dine Genius | Gallery</title></Helmet>
             <NavBar></NavBar>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div className="relative w-full h-[250px]  my-5">
+                <img src="https://i.ibb.co/jbqqB4m/top-view-eid-al-fitr-celebration-with-delicious-food-2.jpg" className="w-full h-[280px]" />
+                <div className="absolute items-center w-full h-[280px] left-0 top-0 bg-gradient-to-r from-[#151515]/70 to-[#151515]/0">
+                    <div className="text-white pl-12 text-center mt-24">
+                        <h2 className="text-6xl font-bold mb-2">Gallery</h2>
+                        <p>Gallery | Foods</p>
+                    </div>
+                </div>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 my-20">
                 {data.map(({ imageLink }, index) => (
                     <div key={index}>
                         <img

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
@@ -59,6 +60,7 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet><title>Dine Genius | Login</title></Helmet>
             <NavBar></NavBar>
             <div className="bg-amber-500/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto lg:p-10 md:p-10 p-3 my-10">
                 <h2 className="text-4xl my-2 text-center font-bold  font-league mb-5">Login Your Account</h2>
