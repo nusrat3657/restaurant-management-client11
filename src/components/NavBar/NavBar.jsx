@@ -70,10 +70,10 @@ const NavBar = () => {
                         <>
                             <button onClick={handleSignOut} className="btn  bg-amber-500 text-white text-lg px-8 rounded-none">Log Out</button>
 
-                            <div className="dropdown dropdown-end relative z-30">
+                            <div className="dropdown dropdown-end relative z-30 tooltip" data-tip={user?.displayName || "User Name not found"}>
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="  rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src={user?.photoURL
+                                    <div className=" rounded-full" >
+                                        <img alt="Tailwind CSS Navbar componen" src={user?.photoURL
                                             || "https://i.ibb.co/Y0RBQqQ/download.png"} />
                                     </div>
                                 </div>
@@ -84,14 +84,6 @@ const NavBar = () => {
 
                                 </ul>
                             </div>
-
-                            {/* <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn m-1">Click</div>
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul>
-                            </div> */}
                         </>
                         :
                         <>
