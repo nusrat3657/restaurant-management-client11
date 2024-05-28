@@ -64,7 +64,7 @@ const AllFoods = () => {
             </div>
             <div className="md:grid grid-cols-3 lg:gap-10 space-y-3 my-14 gap-2">
                 {
-                    foods.map(food => <FoodCard key={food._id} food={food}></FoodCard>)
+                    foods.map(foodData => <FoodCard key={foodData._id} foodData={foodData}></FoodCard>)
                 }
             </div>
         </div>

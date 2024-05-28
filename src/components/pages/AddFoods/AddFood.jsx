@@ -22,8 +22,8 @@ const AddFood = () => {
         const description = form.description.value;
         const photo = form.photo.value;
 
-        const newSpot = { name, email, food, category, quantity, price, country, description, photo }
-        console.log(newSpot);
+        const newFood = { name, email, food, category, quantity, price, country, description, photo }
+        console.log(newFood);
 
         // send data to the server
         fetch('http://localhost:5000/foods', {
@@ -31,7 +31,7 @@ const AddFood = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newSpot)
+            body: JSON.stringify(newFood)
         })
             .then(res => res.json())
             .then(data => {

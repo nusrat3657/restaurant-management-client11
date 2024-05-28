@@ -15,24 +15,24 @@ const Details = () => {
                 <div className="absolute items-center w-full h-[280px] left-0 top-0 bg-gradient-to-r from-[#151515]/70 to-[#151515]/0">
                     <div className="text-white pl-12 text-center mt-24">
                         <h2 className="text-6xl font-bold mb-2">Single Food</h2>
-                        <p>Food Details | {foodData.food_name}</p>
+                        <p>Food Details | {foodData.food_name || foodData.food}</p>
                     </div>
                 </div>
             </div>
             <div className="lg:grid grid-cols-2 gap-10 my-14 lg:mx-0 mx-5">
                 <div className="bg-amber-500/20 rounded-xl p-10 py-20 animate__animated animate__rotateInDownLeft">
-                    <img className="rounded-xl" src={foodData.food_image} alt="" />
+                    <img className="rounded-xl" src={foodData.food_image || foodData.photo} alt="" />
                 </div>
                 <div className="animate__animated animate__rotateInDownRight">
-                    <h2 className="text-amber-bg-amber-500 text-4xl font-bold lg:mt-0 mt-8">{foodData.food_name}</h2>
+                    <h2 className="text-amber-bg-amber-500 text-4xl font-bold lg:mt-0 mt-8">{foodData.food_name || foodData.food}</h2>
                     <p className="my-5 text-lg">{foodData.description}</p>
                     <hr />
 
-                    <p className="my-3 text-lg "><span className="font-bold mr-2">Category: </span> {foodData.food_category}</p>
+                    <p className="my-3 text-lg "><span className="font-bold mr-2">Category: </span> {foodData.food_category || foodData.category}</p>
                     <hr />
-                    <p className="my-3 text-lg "><span className="font-bold mr-2">Made By: </span> {foodData.made_by}</p>
+                    <p className="my-3 text-lg "><span className="font-bold mr-2">Made By: </span> {foodData.made_by || foodData.name}</p>
                     <hr />
-                    <p className="my-3 text-lg"><span className="font-bold mr-2">Food Origin: </span>{foodData.food_origin}</p>
+                    <p className="my-3 text-lg"><span className="font-bold mr-2">Food Origin: </span>{foodData.food_origin || foodData.country}</p>
                     <hr />
                     <p className="my-3 text-lg "><span className="font-bold mr-2">Price: </span>${foodData.price}</p>
                     <hr />
