@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 const FoodCard = ({ foodData }) => {
-    const {_id, photo, food_image, food, food_name, food_category, category,  price} = foodData;
+    const {_id, photo, food_image, food, food_name, food_category, category,  price, quantity} = foodData;
     return (
         <div className="rounded-xl lg:w-[350px] border-2 border-black lg:p-8 shadow-xl md:p-5 p-6 lg:hover:scale-105 animate__animated animate__zoomIn">
             <figure><img className=" rounded-xl" src={photo || food_image} alt="" /></figure>
@@ -11,6 +11,7 @@ const FoodCard = ({ foodData }) => {
                 <hr />
                 <p className="font-semibold mt-2">Category: <span className="font-bold">{food_category || category}</span></p>
                 <p className="font-semibold mt-2">Price: <span className="font-bold">${price}</span></p>
+                <p className="font-semibold mt-2">Quantity: <span className="font-bold">{quantity}</span></p>
                 <div className="flex justify-end pt-4">
                     <Link to={`/details/${_id}`}><button className="btn text-white bg-amber-500">View Details</button></Link>
                 </div>

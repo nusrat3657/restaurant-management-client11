@@ -95,8 +95,8 @@ const Banner = () => {
                 <img src="https://i.ibb.co/5sdjrZN/top-view-eid-al-fitr-celebration-with-delicious-food-1.jpg" className="w-full" />
                 <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[#151515]/0">
                     <div className="text-white space-y-5 pl-12 w-1/2">
-                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
-                        <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+                        <h2 className="md:text-6xl font-semibold">Affordable Price For Our Foods</h2>
+                        <p>In order for us to maintain our lives, we need to consume food to supply nutrient-needs for our bodies. As the global population increased, the demand for food also increased.</p>
                         <div className="flex">
                             <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
                             {/* <button className="btn btn-outline  border-white text-white">Latest Project</button> */}
