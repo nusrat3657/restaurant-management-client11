@@ -1,13 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState, } from "react";
 import { Helmet } from "react-helmet-async";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+// import { toast } from "react-toastify";
 
 const Purchase = () => {
     const foodData = useLoaderData();
     const { user } = useContext(AuthContext);
+    const [currentPurchaseCount, setCurrentPurchaseCount] = useState(foodData.purchaseCount || 0);
+
+
 
     const handleFoodPurchase = event => {
         event.preventDefault();
@@ -16,18 +20,81 @@ const Purchase = () => {
 
         const food = form.food.value;
         const price = form.price.value;
+        const country = form.country.value;
+        const category = form.category.value;
         const quantity = form.quantity.value;
         const name = form.name.value;
         const email = form.email.value;
+        const photo = form.photo.value;
         const date = new Date();
+        const description = form.description.value;
+        const purchaseCount = parseInt(form.purchaseCount.value);
+
+        if (quantity === 0) {
+            Swal.fire({
+                title: "Error!",
+                text: "This item is not available for purchase.",
+                icon: "error",
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        if (purchaseCount >= quantity) {
+            Swal.fire({
+                title: "Error!",
+                text: "You cannot purchase more than the available quantity.",
+                icon: "error",
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        if (user?.email === foodData.email) {
+            Swal.fire({
+                title: "Error!",
+                text: "You cannot purchase your own added food items.",
+                icon: "error",
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+
+        let currentQuantity = parseInt(quantity);
+        // let updatedPurchaseCount = parseInt(purchaseCount);
+
+
+        if (!isNaN(currentQuantity) && currentQuantity > 0) {
+            // Decrement the quantity by one
+            currentQuantity--;
+
+            // Update the quantity input value
+            form.quantity.value = currentQuantity;
+        }
+            // currentCount = + 1;
+
+        // if (!isNaN(currentCount)) {
+        //     // currentCount = 0; // Set a default value if currentCount is NaN
+        //     currentCount++;
+        // }
+        // currentCount++;
+        const updatedPurchaseCount = currentPurchaseCount + 1;
 
         const purchase = {
-            foodName: food,
+            food: food,
             price: price,
-            quantity: quantity,
+            quantity: currentQuantity,
             customerName: name,
-            email,
-            date
+            CustomerEmail: email,
+            name: foodData.name,
+            email: foodData.email,
+            category,
+            country,
+            description,
+            date,
+            photo,
+            purchaseCount: updatedPurchaseCount 
         }
 
         console.log(purchase);
@@ -39,20 +106,45 @@ const Purchase = () => {
             },
             body: JSON.stringify(purchase)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) {
-                Swal.fire({
-                    title: "Success!",
-                    text: "Food Purchase Successfully",
-                    icon: "success",
-                    confirmButtonText: 'Cool'
-                });
-            }
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Food Purchase Successfully",
+                        icon: "success",
+                        confirmButtonText: 'Cool'
+                    });
+                    // purchase.purchaseCount++;
+                }
+                // else if (user?.email = CustomerEmail) return toast.error('Don’t let the user purchase his/her own added food items.')
+            })
+
+        fetch(`http://localhost:5000/foods/${foodData._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchase)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Food Updated Successfully",
+                        icon: "success",
+                        confirmButtonText: 'Cool'
+                    });
+                    // purchase.purchaseCount++;
+                    setCurrentPurchaseCount(updatedPurchaseCount);
+                }
+            })
 
     }
+
     return (
         <div className="max-w-6xl mx-auto my-10">
             <Helmet><title>Dine Genius | Purchase</title></Helmet>
@@ -81,31 +173,38 @@ const Purchase = () => {
                             </label>
 
                         </div>
-                    </div>
-                    {/* form row */}
-                    <div className=" mb-8">
                         <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
-                                <span className="label-text  font-bold">Food Name</span>
+                                <span className="label-text font-bold">purchase Count</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="food" placeholder="Food Name" defaultValue={foodData.food || foodData.food_name} className="input input-bordered w-full" />
-                            </label>
-
-                        </div>
-                        <div className="form-control md:w-full">
-                            <label className="label">
-                                <span className="label-text  font-bold">Date</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="date" placeholder="Food Name" defaultValue={foodData.date} className="input input-bordered w-full" />
+                                <input type="number" name="purchaseCount" placeholder="" defaultValue={foodData.purchaseCount} className="input input-bordered w-full" />
                             </label>
 
                         </div>
                     </div>
                     {/* form row */}
                     <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
+                        <div className="form-control md:w-1/2 ">
+                            <label className="label">
+                                <span className="label-text  font-bold">Food Name</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="food" placeholder="Food Name" defaultValue={foodData.food} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text  font-bold">Date</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="date" placeholder="Current Date" value={foodData.date} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+
+                        <div className="form-control md:w-1/2 md:ml-4">
                             <label className="label">
                                 <span className="label-text font-bold">Quantity</span>
                             </label>
@@ -114,7 +213,33 @@ const Purchase = () => {
                             </label>
 
                         </div>
+                    </div>
+
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text font-bold">Category</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="category" placeholder="Food Category" defaultValue={foodData.category} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+
                         <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text  font-bold">Country</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="country" placeholder="Country" value={foodData.country} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+                    </div>
+
+                    {/* form row */}
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text font-bold">Price</span>
                             </label>
@@ -123,8 +248,31 @@ const Purchase = () => {
                             </label>
 
                         </div>
+
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text  font-bold">Image URL</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="photo" placeholder="URL" value={foodData.photo} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
                     </div>
-                    <input type="submit" value="Purchase" className="btn btn-block bg-amber-500/90 text-white text-lg py-2" />
+
+                    <div className="mb-8">
+                        <div className="form-control md:w-full">
+                            <label className="label">
+                                <span className="label-text font-bold">Description</span>
+                            </label>
+                            <label className="input-group">
+                                <textarea type="text" name="description" placeholder="Add a Short Description" className="input input-bordered w-full h-20 p-2" value={foodData.description} />
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <input disabled={foodData.quantity == 0} type="submit" value="Purchase" className="btn btn-block bg-amber-500/90 text-white text-lg py-2" />
                 </form>
             </div>
         </div>

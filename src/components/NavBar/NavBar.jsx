@@ -24,7 +24,7 @@ const NavBar = () => {
         <li><NavLink to="/" className={({ isActive }) =>
             isActive ? "font-bold  border-2  rounded-lg border-amber-500" : ""
         }>Home</NavLink></li>
-        <li><NavLink to="/all" className={({ isActive }) =>
+        <li><NavLink to="/foods" className={({ isActive }) =>
             isActive ? "font-bold  border-2  rounded-lg border-amber-500" : ""
         }>All Foods</NavLink></li>
         <li><NavLink to="/gallery" className={({ isActive }) =>
@@ -78,9 +78,9 @@ const NavBar = () => {
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 -ml-36 ">
-                                    <Link to="/MyAdddFood"><li><a>My Added Food</a></li></Link>
+                                    <Link to="/myAddedFood"><li><a>My Added Food</a></li></Link>
                                     <Link to="/add"><li><a>Add a Food</a></li></Link>
-                                    <Link to="/MyOrderedFood"><li><a>My Ordered Food</a></li></Link>
+                                    <Link to="/myOrderedFood"><li><a>My Ordered Food</a></li></Link>
 
                                 </ul>
                             </div>

@@ -17,11 +17,12 @@ const Update = () => {
         const category = form.category.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
+        const purchaseCount = form.purchaseCount.value;
         const country = form.country.value;
         const description = form.description.value;
         const photo = form.photo.value;
 
-        const updatedFood = { food, category, quantity, price, country, description, photo }
+        const updatedFood = { food, category, quantity, price, purchaseCount, country, description, photo }
         console.log(updatedFood);
 
         // send data to the server
@@ -111,6 +112,15 @@ const Update = () => {
                             </label>
                             <label className="input-group">
                                 <input type="text" name="price" placeholder="Food Price" defaultValue={foodData.price} className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text font-bold">Purchase Count</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="number" name="purchaseCount" placeholder="Food Price" value={foodData.purchaseCount} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>

@@ -3,25 +3,31 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../../NavBar/NavBar";
 import Swal from "sweetalert2";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const { user, signIn, googleLogin, githubLogin, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect( () => {
+        if (user) {
+            navigate('/')
+        }
+    },[navigate, user])
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    // const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state || '/'
 
-    const navigate = useNavigate();
+   
     console.log('location in the login page', location);
 
     const [showPassword, setShowPassword] = useState(false);
-
+    
     const onSubmit = (data) => {
         const { email, password } = data
         signIn(email, password)
@@ -57,7 +63,7 @@ const Login = () => {
 
             })
     }
-
+    if (user || loading) return
     return (
         <div>
             <Helmet><title>Dine Genius | Login</title></Helmet>

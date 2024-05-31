@@ -18,11 +18,12 @@ const AddFood = () => {
         const category = form.category.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
+        // const purchaseCount = parseInt(0);
         const country = form.country.value;
         const description = form.description.value;
         const photo = form.photo.value;
 
-        const newFood = { name, email, food, category, quantity, price, country, description, photo }
+        const newFood = { name, email, food, category, quantity, price,  country, description, photo }
         console.log(newFood);
 
         // send data to the server
@@ -112,6 +113,15 @@ const AddFood = () => {
                             </label>
                             <label className="input-group">
                                 <input type="text" name="price" placeholder="Food Price" className="input input-bordered w-full" />
+                            </label>
+
+                        </div>
+                        <div className="form-control md:w-1/2 md:ml-4">
+                            <label className="label">
+                                <span className="label-text font-bold">Purchase Count</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="number" name="purchaseCount" placeholder="" disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>

@@ -9,7 +9,7 @@ const Details = () => {
     return (
         <div className="max-w-6xl mx-auto my-10">
             <Helmet><title>Dine Genius | Details</title></Helmet>
-            <Link to="/all"><button className="flex items-center gap-3 font-bold"><AiOutlineArrowLeft />Go Back</button></Link>
+            <Link to="/foods"><button className="flex items-center gap-3 font-bold"><AiOutlineArrowLeft />Go Back</button></Link>
             <div className="relative w-full h-[250px]  my-5">
                 <img src="https://i.ibb.co/jbqqB4m/top-view-eid-al-fitr-celebration-with-delicious-food-2.jpg" className="w-full h-[280px]" />
                 <div className="absolute items-center w-full h-[280px] left-0 top-0 bg-gradient-to-r from-[#151515]/70 to-[#151515]/0">

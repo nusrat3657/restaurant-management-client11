@@ -16,7 +16,7 @@ const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const from = '/'
+    const from = location?.state || '/'
 
     const navigate = useNavigate();
     console.log('location in the login page', location);
