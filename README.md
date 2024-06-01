@@ -2,7 +2,7 @@
 
 Welcome to Dine Genius, your ultimate destination for delicious food delivery!
 
-**Live Site URL:** [Dine Genius]()
+**Live Site URL:** [Dine Genius](https://restaurant-management-we-21b49.web.app/)
 
 ## Key Features:
 - **Top-Selling Foods:** Discover the top 6 most popular food items based on the number of purchases.
