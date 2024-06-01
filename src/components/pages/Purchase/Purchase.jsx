@@ -149,7 +149,6 @@ const Purchase = () => {
         <div className="max-w-6xl mx-auto my-10">
             <Helmet><title>Dine Genius | Purchase</title></Helmet>
             <Link to={`/details/${foodData._id}`}><button className="flex items-center gap-3 font-bold"><AiOutlineArrowLeft /> Go Back</button></Link>
-            <h2>Orders: {foodData.food || foodData.food_name}</h2>
             <div className="bg-amber-500/20 lg:px-24 px-6 lg:py-16 py-6">
                 <h2 className="text-3xl font-bold mb-10 text-center ">Purchase Item: ({foodData.food || foodData.food_name})</h2>
                 <form onSubmit={handleFoodPurchase}>
