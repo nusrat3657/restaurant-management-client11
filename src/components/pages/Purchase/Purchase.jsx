@@ -151,7 +151,10 @@ const Purchase = () => {
             <Link to={`/details/${foodData._id}`}><button className="flex items-center gap-3 font-bold"><AiOutlineArrowLeft /> Go Back</button></Link>
             <div className="bg-amber-500/20 lg:px-24 px-6 lg:py-16 py-6">
                 <h2 className="text-3xl font-bold mb-10 text-center ">Purchase Item: ({foodData.food || foodData.food_name})</h2>
+                
+                <img className="w-[20%] mx-auto mb-4" src={foodData.photo} alt="" />
                 <form onSubmit={handleFoodPurchase}>
+
                     {/* form row */}
                     <div className="md:flex mb-8">
                         <div className="form-control md:w-1/2">
