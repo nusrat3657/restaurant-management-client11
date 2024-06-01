@@ -12,8 +12,14 @@ const AllFoods = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://restaurant-management-server-flame-eight.vercel.app");
-                setFoods(response.data);
+                const response = await axios.get("https://restaurant-management-server-flame-eight.vercel.app/foods");
+                // console.log('Fetched foods:', response.data);
+                if (Array.isArray(response.data)) {
+                    const sortedFoods = response.data.sort((a, b) => b.purchaseCount - a.purchaseCount);
+                    setFoods(sortedFoods); 
+                } else {
+                    console.error('Data fetched is not an array:', response.data);
+                }
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -25,10 +31,9 @@ const AllFoods = () => {
         e.preventDefault();
         const text = e.target.search.value.trim();
         setSearch(text);
-        
+
     };
-    console.log(search);
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -72,7 +77,9 @@ const AllFoods = () => {
                 </div>
             </form>
             <div className="md:grid grid-cols-3 lg:gap-10 space-y-3 my-14 gap-2">
-                {foods.map(foodData => <FoodCard key={foodData._id} foodData={foodData} />)}
+            {
+                    Array.isArray(foods) && foods.map(foodData => <FoodCard key={foodData._id} foodData={foodData} />)
+                }
             </div>
         </div>
     );

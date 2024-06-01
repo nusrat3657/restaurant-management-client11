@@ -9,8 +9,8 @@ import { AuthContext } from "../../../providers/AuthProvider";
 const MyOrderedFoods = () => {
     const { user } = useContext(AuthContext)
     const orderedData = useLoaderData();
-    // const remaining = orderedData.filter(ordered => ordered.email === user.email);
-    // console.log(remaining);
+    const remaining = orderedData.filter(ordered => ordered.email === user.email);
+    console.log(remaining);
     const [orders, setOrders] = useState(orderedData);
     const [purchase, setPurchase] = useState([]);
 
@@ -23,10 +23,10 @@ const MyOrderedFoods = () => {
             })
     }, [url]);
 
-    // console.log(purchase);
+    console.log(purchase);
 
     const handleDelete = _id => {
-        // console.log(_id);
+        console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -42,7 +42,7 @@ const MyOrderedFoods = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        // console.log(data);
+                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -66,7 +66,9 @@ const MyOrderedFoods = () => {
                 <hr />
                 <p>User Name: {user.displayName}</p>
                 <p>User Email: {user.email}</p>
+                <p>Ordered Items: <span className="font-bold">{purchase.length}</span></p>
             </div>
+            <hr />
             <hr />
             <div className="overflow-x-auto">
                 <table className="table">

@@ -26,7 +26,7 @@ const MyAddedFood = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://restaurant-management-server-flame-eight.vercel.app/${_id}`, {
+                fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -55,6 +55,8 @@ const MyAddedFood = () => {
                 <hr />
                 <p>User Name: {user.displayName}</p>
                 <p>User Email: {user.email}</p>
+                <p>Added Items: <span className="font-bold">{remaining.length}</span></p>
+                <hr />
             </div>
             <div className="overflow-x-auto">
                 <table className="table">

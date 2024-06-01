@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/foods',
                 element: <AllFoods></AllFoods>,
-                loader: () => fetch('https://restaurant-management-server-flame-eight.vercel.app')
+                loader: () => fetch('https://restaurant-management-server-flame-eight.vercel.app/foods')
             },
             {
                 path: '/add',
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
             {
                 path: '/myAddedFood',
                 element: <PrivateRoute><MyAddedFood></MyAddedFood></PrivateRoute>,
-                loader: () => fetch("https://restaurant-management-server-flame-eight.vercel.app")
+                loader: () => fetch("https://restaurant-management-server-flame-eight.vercel.app/foods")
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/myOrderedFood',
@@ -50,17 +50,17 @@ const router = createBrowserRouter([
             // {
             //     path: 'details/:id',
             //     element:<PrivateRoute><Details></Details></PrivateRoute>,
-            //     loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
+            //     loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app${params.id}`)
             // },
             // {
             //     path: 'purchase/:id',
             //     element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-            //     loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
+            //     loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app${params.id}`)
             // },
             {
                 path: '/gallery',
                 element: <Gallery></Gallery>,
-                loader: () => fetch("http://localhost:5000/addedFoods")
+                loader: () => fetch("https://restaurant-management-server-flame-eight.vercel.app/addedFoods")
             },
             {
                 path: '/register',
@@ -76,12 +76,12 @@ const router = createBrowserRouter([
     {
         path: 'details/:id',
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
+        loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${params.id}`)
     },
     {
         path: 'purchase/:id',
         element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-        loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
+        loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${params.id}`)
     },
     {
         path: '/error',

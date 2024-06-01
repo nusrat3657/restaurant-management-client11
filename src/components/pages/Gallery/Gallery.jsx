@@ -24,7 +24,7 @@ export const Gallery = () => {
         // console.log(newFood);
 
         // swnd data to the server
-        fetch('http://localhost:5000/addedFoods', {
+        fetch('https://restaurant-management-server-flame-eight.vercel.app/addedFoods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

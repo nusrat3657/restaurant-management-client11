@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Helmet } from "react-helmet-async";
 import Banner from "../../Banner/Banner";
 import NavBar from "../../NavBar/NavBar";
@@ -9,7 +10,7 @@ const Home = () => {
     const [topSellingFoods, setTopSellingFoods] = useState([]);
 
     useEffect(() => {
-        fetch('https://restaurant-management-server-flame-eight.vercel.app')
+        fetch('https://restaurant-management-server-flame-eight.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
                 const sortedData = data.sort((a, b) => b.purchaseCount - a.purchaseCount);
@@ -44,6 +45,7 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
+                <Link to='/foods'><button className="btn mb-4 border-2 border-amber-500 items-center mx-auto">See All</button></Link>
             </div>
                     <hr />
 

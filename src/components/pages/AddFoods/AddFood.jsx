@@ -18,17 +18,17 @@ const AddFood = () => {
         const category = form.category.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
-        // const purchaseCount = parseInt(0);
+        const purchaseCount = parseInt(0);
         const country = form.country.value;
         const description = form.description.value;
         const photo = form.photo.value;
 
-        const newFood = { name, email, food, category, quantity, price,  country, description, photo }
+        const newFood = { name, email, food, category, quantity, price, purchaseCount, country, description, photo }
         // console.log(newFood);
 
         // send data to the server
-        fetch('https://restaurant-management-server-flame-eight.vercel.app', {
-            method: "POST",
+        fetch('https://restaurant-management-server-flame-eight.vercel.app/foods', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
@@ -36,7 +36,7 @@ const AddFood = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: "Success!",

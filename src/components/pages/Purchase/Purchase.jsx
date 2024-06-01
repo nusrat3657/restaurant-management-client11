@@ -121,7 +121,7 @@ const Purchase = () => {
                 // else if (user?.email = CustomerEmail) return toast.error('Don’t let the user purchase his/her own added food items.')
             })
 
-        fetch(`https://restaurant-management-server-flame-eight.vercel.app/${foodData._id}`, {
+        fetch(`https://restaurant-management-server-flame-eight.vercel.app${foodData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
