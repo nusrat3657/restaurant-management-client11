@@ -8,7 +8,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Update = () => {
     const {user} = useContext(AuthContext);
     const foodData = useLoaderData();
-    console.log(foodData);
+    // console.log(foodData);
     const handleUpdateFood = event => {
         event.preventDefault();
         const form = event.target;
@@ -23,7 +23,7 @@ const Update = () => {
         const photo = form.photo.value;
 
         const updatedFood = { food, category, quantity, price, purchaseCount, country, description, photo }
-        console.log(updatedFood);
+        // console.log(updatedFood);
 
         // send data to the server
         fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${foodData._id}`, {
@@ -35,7 +35,7 @@ const Update = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Success!",
