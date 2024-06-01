@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${params.id}`)
     },
     {
-        path: '/error',
+        path: '*',
         element: <ErrorPage></ErrorPage>
     }
 ])

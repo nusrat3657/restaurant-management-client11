@@ -47,7 +47,7 @@ const Banner = () => {
                         <h2 className="md:text-6xl font-semibold">Affordable Price For Our Food Servicing</h2>
                         <p className="sm:disabled">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <Link to="/all"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
+                            <Link to="/foods"><button className="btn border-none text-white bg-amber-500 mr-5">Explore More</button></Link>
                             {/* <button className="btn btn-outline  border-white text-white">Latest Project</button> */}
                         </div>
                     </div>
