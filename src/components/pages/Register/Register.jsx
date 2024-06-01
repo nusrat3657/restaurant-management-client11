@@ -19,7 +19,7 @@ const Register = () => {
     const from = location?.state || '/'
 
     const navigate = useNavigate();
-    console.log('location in the login page', location);
+    // console.log('location in the login page', location);
 
     const onSubmit = (data) => {
         const { email, password, image, fullName } = data;

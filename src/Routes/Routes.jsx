@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/foods',
                 element: <AllFoods></AllFoods>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://restaurant-management-server-flame-eight.vercel.app')
             },
             {
                 path: '/add',
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
             {
                 path: '/myAddedFood',
                 element: <PrivateRoute><MyAddedFood></MyAddedFood></PrivateRoute>,
-                loader: () => fetch("http://localhost:5000/foods")
+                loader: () => fetch("https://restaurant-management-server-flame-eight.vercel.app")
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
             },
             {
                 path: '/myOrderedFood',
@@ -50,12 +50,12 @@ const router = createBrowserRouter([
             // {
             //     path: 'details/:id',
             //     element:<PrivateRoute><Details></Details></PrivateRoute>,
-            //     loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+            //     loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
             // },
             // {
             //     path: 'purchase/:id',
             //     element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-            //     loader:  ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+            //     loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
             // },
             {
                 path: '/gallery',
@@ -76,12 +76,12 @@ const router = createBrowserRouter([
     {
         path: 'details/:id',
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
     },
     {
         path: 'purchase/:id',
         element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-        loader:  ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader:  ({params}) => fetch(`https://restaurant-management-server-flame-eight.vercel.app/${params.id}`)
     },
     {
         path: '/error',

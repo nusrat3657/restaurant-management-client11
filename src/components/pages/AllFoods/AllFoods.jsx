@@ -12,7 +12,7 @@ const AllFoods = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/foods");
+                const response = await axios.get("https://restaurant-management-server-flame-eight.vercel.app");
                 setFoods(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -25,13 +25,15 @@ const AllFoods = () => {
         e.preventDefault();
         const text = e.target.search.value.trim();
         setSearch(text);
+        
     };
+    console.log(search);
     
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/foods?search=${search}`);
-                setFoods(response.data);
+                const response = await axios.get(`https://restaurant-management-server-flame-eight.vercel.app?search=${search}`);
+                setSearch(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

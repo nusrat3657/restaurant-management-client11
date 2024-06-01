@@ -9,7 +9,7 @@ const Home = () => {
     const [topSellingFoods, setTopSellingFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://restaurant-management-server-flame-eight.vercel.app')
             .then(res => res.json())
             .then(data => {
                 const sortedData = data.sort((a, b) => b.purchaseCount - a.purchaseCount);

@@ -24,7 +24,7 @@ const Login = () => {
     const from = location?.state || '/'
 
    
-    console.log('location in the login page', location);
+    // console.log('location in the login page', location);
 
     const [showPassword, setShowPassword] = useState(false);
     
@@ -32,7 +32,7 @@ const Login = () => {
         const { email, password } = data
         signIn(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",

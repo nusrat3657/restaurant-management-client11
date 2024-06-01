@@ -21,7 +21,7 @@ export const Gallery = () => {
         const feedback = form.feedback.value;
 
         const newFood = { name, photo, feedback };
-        console.log(newFood);
+        // console.log(newFood);
 
         // swnd data to the server
         fetch('http://localhost:5000/addedFoods', {
@@ -33,7 +33,7 @@ export const Gallery = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
 
                 if (data.insertedId) {
                     Swal.fire({

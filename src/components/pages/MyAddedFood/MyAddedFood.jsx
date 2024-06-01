@@ -11,11 +11,11 @@ const MyAddedFood = () => {
     const { user } = useContext(AuthContext);
     const foodData = useLoaderData();
     const remaining = foodData.filter(food => food.email === user.email);
-    console.log(remaining);
+    // console.log(remaining);
     const [foods, setFoods] = useState(foodData);
 
     const handleDelete = _id => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,12 +26,12 @@ const MyAddedFood = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/foods/${_id}`, {
+                fetch(`https://restaurant-management-server-flame-eight.vercel.app/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

@@ -97,7 +97,7 @@ const Purchase = () => {
             purchaseCount: updatedPurchaseCount 
         }
 
-        console.log(purchase);
+        // console.log(purchase);
 
         fetch('http://localhost:5000/purchase', {
             method: 'POST',
@@ -108,7 +108,7 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: "Success!",
@@ -121,7 +121,7 @@ const Purchase = () => {
                 // else if (user?.email = CustomerEmail) return toast.error('Don’t let the user purchase his/her own added food items.')
             })
 
-        fetch(`http://localhost:5000/foods/${foodData._id}`, {
+        fetch(`https://restaurant-management-server-flame-eight.vercel.app/${foodData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -130,7 +130,7 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount) {
                     Swal.fire({
                         title: "Success!",

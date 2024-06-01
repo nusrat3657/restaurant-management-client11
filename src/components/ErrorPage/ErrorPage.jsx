@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
 
-    // const err = useRouteError()
-    // console.log(err)
-
     return (
         <>
         <Helmet><title>Dine Genius | Error</title></Helmet>

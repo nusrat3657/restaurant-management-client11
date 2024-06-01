@@ -26,7 +26,7 @@ const Update = () => {
         console.log(updatedFood);
 
         // send data to the server
-        fetch(`http://localhost:5000/foods/${foodData._id}`, {
+        fetch(`https://restaurant-management-server-flame-eight.vercel.app/${foodData._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
