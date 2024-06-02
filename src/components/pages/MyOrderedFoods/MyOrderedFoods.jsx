@@ -15,7 +15,7 @@ const MyOrderedFoods = () => {
     // eslint-disable-next-line no-unused-vars
     const [purchase, setPurchase] = useState([]);
 
-    const url = `http://localhost:5000/purchase?email=${user?.CustomerEmail}`
+    const url = `https://restaurant-management-server-flame-eight.vercel.app/purchase?email=${user?.CustomerEmail}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -38,7 +38,7 @@ const MyOrderedFoods = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/purchase/${_id}`, {
+                fetch(`https://restaurant-management-server-flame-eight.vercel.app/purchase/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
