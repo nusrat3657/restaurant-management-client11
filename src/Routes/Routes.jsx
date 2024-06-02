@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: '/myOrderedFood',
                 element: <PrivateRoute><MyOrderedFoods></MyOrderedFoods></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/purchase/${params.id}`)
+                loader: () => fetch("https://restaurant-management-server-flame-eight.vercel.app/purchase")
             },
             // {
             //     path: 'details/:id',

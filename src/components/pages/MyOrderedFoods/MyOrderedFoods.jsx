@@ -9,12 +9,13 @@ import { AuthContext } from "../../../providers/AuthProvider";
 const MyOrderedFoods = () => {
     const { user } = useContext(AuthContext)
     const orderedData = useLoaderData();
-    // const remaining = orderedData.filter(ordered => ordered.email === user.email);
-    // console.log(remaining);
+    const remaining = orderedData.filter(ordered => ordered.CustomerEmail === user.email);
+    console.log(remaining);
     const [orders, setOrders] = useState(orderedData);
+    // eslint-disable-next-line no-unused-vars
     const [purchase, setPurchase] = useState([]);
 
-    const url = `http://localhost:5000/purchase?email=${user?.email}`
+    const url = `http://localhost:5000/purchase?email=${user?.CustomerEmail}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -66,7 +67,7 @@ const MyOrderedFoods = () => {
                 <hr />
                 <p>User Name: {user.displayName}</p>
                 <p>User Email: {user.email}</p>
-                <p>Ordered Items: <span className="font-bold">{purchase.length}</span></p>
+                <p>Ordered Items: <span className="font-bold">{remaining.length}</span></p>
             </div>
             <hr />
             <hr />
@@ -86,7 +87,7 @@ const MyOrderedFoods = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            purchase.map(order =>
+                            remaining.map(order =>
                                 <tr>
                                     <td>
                                         <div className="flex items-center gap-3">

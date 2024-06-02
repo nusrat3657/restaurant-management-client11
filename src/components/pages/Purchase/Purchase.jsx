@@ -10,7 +10,7 @@ const Purchase = () => {
     const foodData = useLoaderData();
     const { user } = useContext(AuthContext);
     const [currentPurchaseCount, setCurrentPurchaseCount] = useState(foodData.purchaseCount || 0);
-
+// console.log(currentPurchaseCount);
 
 
     const handleFoodPurchase = event => {
@@ -29,6 +29,8 @@ const Purchase = () => {
         const date = new Date();
         const description = form.description.value;
         const purchaseCount = parseInt(form.purchaseCount.value);
+        setCurrentPurchaseCount(purchaseCount)
+        // console.log(purchaseCount);
 
         if (quantity === 0) {
             Swal.fire({
@@ -74,12 +76,18 @@ const Purchase = () => {
         }
             // currentCount = + 1;
 
-        // if (!isNaN(currentCount)) {
-        //     // currentCount = 0; // Set a default value if currentCount is NaN
-        //     currentCount++;
-        // }
+        if (isNaN(currentPurchaseCount)) {
+            // updatedPurchaseCount = 0; // Set a default value if currentCount is NaN
+            // currentCount++;
+            // const updatedPurchaseCount = currentPurchaseCount + 1;
+            // console.log(updatedPurchaseCount);
+
+            
+        }
         // currentCount++;
         const updatedPurchaseCount = currentPurchaseCount + 1;
+        // console.log(updatedPurchaseCount);
+        form.purchaseCount.value = updatedPurchaseCount;
 
         const purchase = {
             food: food,
@@ -94,12 +102,12 @@ const Purchase = () => {
             description,
             date,
             photo,
-            purchaseCount: updatedPurchaseCount 
+            purchaseCount: updatedPurchaseCount
         }
 
         // console.log(purchase);
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://restaurant-management-server-flame-eight.vercel.app/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -121,8 +129,8 @@ const Purchase = () => {
                 // else if (user?.email = CustomerEmail) return toast.error('Don’t let the user purchase his/her own added food items.')
             })
 
-        fetch(`https://restaurant-management-server-flame-eight.vercel.app${foodData._id}`, {
-            method: 'PUT',
+            fetch(`https://restaurant-management-server-flame-eight.vercel.app/foods/${foodData._id}`, {
+            method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },
@@ -131,14 +139,13 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                if (data.modifiedCount) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Success!",
                         text: "Food Updated Successfully",
                         icon: "success",
                         confirmButtonText: 'Cool'
                     });
-                    // purchase.purchaseCount++;
                     setCurrentPurchaseCount(updatedPurchaseCount);
                 }
             })
@@ -180,7 +187,7 @@ const Purchase = () => {
                                 <span className="label-text font-bold">purchase Count</span>
                             </label>
                             <label className="input-group">
-                                <input type="number" name="purchaseCount" placeholder="" defaultValue={foodData.purchaseCount} className="input input-bordered w-full" />
+                                <input type="number" name="purchaseCount" placeholder="" defaultValue={foodData.purchaseCount} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -192,7 +199,7 @@ const Purchase = () => {
                                 <span className="label-text  font-bold">Food Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="food" placeholder="Food Name" defaultValue={foodData.food} className="input input-bordered w-full" />
+                                <input type="text" name="food" placeholder="Food Name" defaultValue={foodData.food} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -201,7 +208,7 @@ const Purchase = () => {
                                 <span className="label-text  font-bold">Date</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="date" placeholder="Current Date" value={foodData.date} className="input input-bordered w-full" />
+                                <input type="text" name="date" placeholder="Current Date" value={foodData.date} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -211,7 +218,7 @@ const Purchase = () => {
                                 <span className="label-text font-bold">Quantity</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="quantity" placeholder="Food Quantity" defaultValue={foodData.quantity} className="input input-bordered w-full" />
+                                <input type="text" name="quantity" placeholder="Food Quantity" defaultValue={foodData.quantity} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -223,7 +230,7 @@ const Purchase = () => {
                                 <span className="label-text font-bold">Category</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="category" placeholder="Food Category" defaultValue={foodData.category} className="input input-bordered w-full" />
+                                <input type="text" name="category" placeholder="Food Category" defaultValue={foodData.category} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -233,7 +240,7 @@ const Purchase = () => {
                                 <span className="label-text  font-bold">Country</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="country" placeholder="Country" value={foodData.country} className="input input-bordered w-full" />
+                                <input type="text" name="country" placeholder="Country" value={foodData.country} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -246,7 +253,7 @@ const Purchase = () => {
                                 <span className="label-text font-bold">Price</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="price" placeholder="Food Price" defaultValue={foodData.price} className="input input-bordered w-full" />
+                                <input type="text" name="price" placeholder="Food Price" defaultValue={foodData.price} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -256,7 +263,7 @@ const Purchase = () => {
                                 <span className="label-text  font-bold">Image URL</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="photo" placeholder="URL" value={foodData.photo} className="input input-bordered w-full" />
+                                <input type="text" name="photo" placeholder="URL" value={foodData.photo} disabled className="input input-bordered w-full" />
                             </label>
 
                         </div>
@@ -268,7 +275,7 @@ const Purchase = () => {
                                 <span className="label-text font-bold">Description</span>
                             </label>
                             <label className="input-group">
-                                <textarea type="text" name="description" placeholder="Add a Short Description" className="input input-bordered w-full h-20 p-2" value={foodData.description} />
+                                <textarea type="text" name="description" placeholder="Add a Short Description" className="input input-bordered w-full h-20 p-2" value={foodData.description} disabled />
                             </label>
 
                         </div>
