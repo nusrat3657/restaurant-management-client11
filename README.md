@@ -12,3 +12,8 @@ Welcome to Dine Genius, your ultimate destination for delicious food delivery!
 - **Single Food Page:** Dive deeper into your favorite food items with our detailed single food page featuring additional information and the option to place an order.
 
 Enjoy a culinary journey like never before with Dine Genius!
+
+## Technologies
+- react icon
+- swiper slider
+- react hook form
