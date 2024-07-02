@@ -2,6 +2,8 @@
 
 Welcome to Dine Genius, your ultimate destination for delicious food delivery!
 
+At Dine Genius, we understand the complexities of running a successful restaurant. Our website is dedicated to providing innovative solutions that streamline and enhance every aspect of restaurant management. Whether you're a small café, a bustling bistro, or a fine dining establishment, Dine Genius offers the tools and insights you need to optimize your operations and deliver exceptional dining experiences.
+
 **Live Site URL:** [Dine Genius](https://restaurant-management-we-21b49.web.app/)
 
 ## Key Features:
