@@ -17,3 +17,10 @@ Enjoy a culinary journey like never before with Dine Genius!
 - react icon
 - swiper slider
 - react hook form
+
+## How to clone and run this project
+
+Clone the repository,
+Install dependencies using npm install,
+Set up Firebase configuration keys using environment variables,
+Run the project using npm start.
